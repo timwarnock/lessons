@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Lesson 9</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+<style>
+
+</style>
+<script>
+
+function toggled() {
+  for (var i=0; i < arguments.length; i++) {
+    var el = document.getElementById(arguments[i]);
+    el.style.display = el.style.display === 'none' ? '' : 'none';
+  }
+}
+
+
+</script>
+</head>
+<body>
+<div id="page">
+
+<div id="header">
+HTML <span class="gray">+</span> CSS <span class="gray">+</span> Javascript <span class="gray">Lessons</span>
+</div>
+
+<div id="body">
+
+
+
+<h1>Welcome to the 9th Lesson</h1>
+<p>Let's talk about Responsive Web Design</p>
+https://en.wikipedia.org/wiki/Responsive_web_design
+Responsive web design
+User interface plasticity
+Progressive enhancement
+Graceful degradation, fault tolerance
+Adaptive web design
+Fluidity, Fixity? Synergy!
+Basically, we don't want it to look like shit.
+Here are some useful techniques:
+<br />
+
+
+
+<h2>Keep it Simple, Stupid</h2>
+<p>Mobile First</p>
+<p>Viewport</p>
+<xmp><meta name="viewport" content="width=device-width, initial-scale=1.0">
+</xmp>
+<br />
+
+
+
+<h2>Font-sizing</h2>
+<p>Font-sizing</p>
+<xmp><p style="font-size:3vw">This is relative to the viewport width!</p> 
+</xmp>
+<p style="font-size:3vw">This is relative to the viewport width!</p> 
+
+
+https://snook.ca/archives/html_and_css/font-size-with-rem
+<xmp>html { font-size: 62.5%; } 
+body { font-size: 14px; font-size: 1.4rem; } /* =14px */
+h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
+</xmp>
+<br />
+
+
+
+
+<h2>Image-sizing</h2>
+<p>yep</p>
+<xmp><img src="img_kitten_bw_900x240.jpg" style="width:90%">
+</xmp>
+<img src="img_kitten_bw_900x240.jpg" style="width:90%;" />
+<p>yep</p>
+<br />
+
+
+
+
+<h2>@media queries</h2>
+<p>like so</p>
+<xmp>
+@media only screen and (min-width: 720px) {
+
+   ...
+
+}
+</xmp>
+<p>so for example</p>
+<xmp>#body {
+  padding: 10px 10px 3em 20px;
+}
+#header {
+  border-bottom: 3px solid black;
+  margin-bottom: 10px;
+  padding: 20px;
+  font-size: 20px;
+  background-color: #333;
+  color: #d0d0d9;
+}
+
+/* LARGE desktop */
+@media only screen and (min-width: 720px) {
+  #header {
+    padding: 20px 60px;
+    margin-bottom: 20px;
+    font-size: 32px;
+  }
+  #body {
+    padding: 10px 10px 3em 60px;
+    max-width: 1200px;
+  }
+}
+
+/* TINY smartphone */
+@media only screen and (max-width: 380px) {
+  #header {
+    font-size: 15px;
+  }
+}
+</xmp>
+
+<br />
+
+
+
+
+
+
+
+
+
+
+<div id="readyformore" style="display:none;">
+
+<h2>Are you ready for more?</h2>
+<p>Let's move on to <a href="10.html">Lesson 10</a>.</p>
+<br />
+</div>
+
+
+
+
+
+</div><!-- end of div#body -->
+<div id="footer" style="display:none;">
+this is the footer
+</div>
+
+
+</div><!-- end of div#page -->
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Lesson 3</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+
+body {
+  font-family: Sans-serif;
+  padding: 10px;
+}
+
+xmp {
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  margin-bottom: 10px;
+  overflow: auto;
+  width: auto;
+  padding: 5px;
+  background-color: #eee;
+  width: 650px!ie7;
+  padding-bottom: 20px!ie7;
+  max-height: 600px;
+}
+
+.mono {
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+}
+
+
+
+  </style>
+</head>
+<body>
+
+<h1 class="purple">Welcome to the third lesson</h1>
+
+<h2 class="red">Why is this red?</h2>
+<p>Now that you know what HTML is, let's talk about CSS, that is, <em>Cascading Style Sheets</em></p>
+<p>Simply put, CSS defines the presentation or <em>style</em> of your webpage. 
+  The style includes the fonts, color, padding, border, everything related to what the page should look like.</p>
+<p>In other words, the HTML contains the content of the page,
+	   and the CSS describes the style.</p> 
+<p>Which is why the above heading is <span class="red bold">red</span>! The CSS made it <span class="red bold">red</span>!</p>
+<br />
+
+
+<h2>Why is CSS separate from HTML?</h2>
+<p>This is a good question. In order to make a webpage one must write in TWO different languages, one in HTML, and the other in CSS.</p>
+<p>Here is an example of what CSS looks like,</p>
+<xmp>
+  p {
+    font-family: sans-serif;
+    color: black;
+  }
+
+  .red {
+    color: red;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+</xmp>
+
+<p>Using the above CSS, I can write HTML like this,</p>
+<xmp><p>Is this <span class="red bold">red</span>?</p>
+</xmp>
+<br />
+<p>Which will look like this:</p>
+<p>Is this <span class="red bold">red</span>?</p>
+<br />
+<p>How easy!</p>
+<p>In the old days of the <em>World Wide Web</em> we didn't have CSS, instead we mixed our content with our presentation.</p>
+<p>We had things like <span class="mono">&lt;FONT&gt;</span> and we abused <span class="mono">&lt;TABLE&gt;</span> tags. 
+  Our HTML looked really ugly and was difficult to manage. Don't do this!</p>
+<p>With CSS, we have a <em>Separation of Concerns</em>, this means that whoever is working on the content can do so indpendently of the presenation.</p>
+<p>In practice, this means a web designer can focus on the CSS without having to worry about the content itself.</p>
+<br />
+
+
+
+
+
+<h2 class="red">Let's get started with CSS</h2>
+<p>First things first, how do we link our HTML to our CSS?</p>
+<p>Well, there are THREE ways to get your HTML and CSS to work together:</p>
+<p><ol><strong>
+ <li>External Stylesheet</li>
+ <li>Internal Stylesheet</li>
+ <li>Inline Style</li>
+</strong></ol></p>
+<p>Don't worry, it's much easier than it sounds. Let's go through these one by one.</p>
+<br />
+
+
+
+<br />
+<h2>The External Stylesheet</h2>
+<p>In this approach, you put all your CSS in a separate file. Easy!</p>
+<p>This is the recommended approach, and you'll find most website do exactly this.</p>
+<p>Let's try it out!</p>
+<br />
+
+<h3>Step 1</h3>
+<p>Create a file called <em>style.css</em> in the same directory as example.html</p>
+<p>Copy and paste the following into <em>style.css</em> and save.</p>
+<xmp>body {
+  font-family: sans-serif;
+  color: gray;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.purple {
+  color: purple;
+}
+
+.red {
+  color: red;
+}
+
+.gray, .grey {
+  color: gray;
+}
+</xmp>
+<p>Save this file.</p>
+<p>Again, make sure it's called <em>style.css</em> and is in the same directory as <em>example.html</em></p>
+<br />
+
+
+<h3>Step 2</h3>
+<p>Now we just need to reference <em>style.css</em> in our HTML, it will look like this,</p>
+<xmp><link href="style.css" rel="stylesheet" type="text/css" />
+</xmp>
+<br />
+
+<p>Simple!</p>
+<p>Here's an updated <em>example.html</em>, go and ahead and copy and paste this:</p>
+<xmp><!DOCTYPE html>
+<html>
+  <head>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <title>My test page</title>
+  </head>
+  <body>
+    Hello World!
+    <p>You just created your first <span class="bold purple">webpage</span>, how exciting!</p>
+  </body>
+</html>
+</xmp>
+<p>Save the file, and now open your new <em>example.html</em> in a web browser.</p>
+<br />
+
+<p>If you did this correctly, what used to look like:</p>
+<p style="font-family: normal; color: black;">Hello World!</p>
+<p style="font-family: normal; color: black;">You just created your first webpage, how exciting!</p>
+<br />
+<p>Should now look like this:</p>
+<p style="font-family: sans-serif; color: gray;">Hello World!</p>
+<p style="color: gray">You just created your first <span class="bold purple">webpage</span>, how exciting!</p>
+<br />
+
+<p>See how easy this is? You can modify the presentation without touching the HTML file.</p>
+<p>And best of all, one stylesheet can be used for hundreds of HTML pages! CSS is great!</p>
+<p>Now let's learn about the second way to get your CSS and HTML working together, the <em>internal stylesheet</em>.</p>
+<br />
+
+
+
+
+
+<br />
+<h2>The Internal Stylesheet</h2>
+<p>In this approach, you write your CSS directly inside the <span class="mono">&lt;head&gt;</span> element of your HTML file.</p>
+<p>Here's a modified <em>example.html</em>, notice the new <span class="mono">&lt;style&gt;</span> element,</p>
+<xmp><!DOCTYPE html>
+<html>
+  <head>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <title>My test page</title>
+    <style>
+
+      p {
+        color: black;
+      }
+
+    </style>
+  </head>
+  <body>
+    Hello World!
+    <p>You just created your first <span class="bold purple">webpage</span>, how exciting!</p>
+  </body>
+</html>
+</xmp>
+
+<p>All we did here is put CSS directly inside of our HTML file, i.e.,</p>
+<xmp><style>
+
+  p {
+    color: black;
+  }
+
+</style>
+</xmp>
+<p>This starts to look ugly, the HTML and CSS are now sharing the same file.</p>
+<p>If you have a simple webpage, this approach may work for you. I won't judge!</p>
+<p>But if you want to mix it up, let's look at the third way to get CSS and HTML working together, the <em>inline style</em>.</p>
+<br />
+
+
+
+
+<br />
+<h2>Inline Style</h2>
+<p>An inline style allows you to write CSS directly inside each HTML element.</p>
+<p>For example,</p>
+<xmp><p>I want this to be <span style="font-weight: bold; color: purple;">different</span></p>
+</xmp>
+<p>I want this to be <span style="font-weight: bold; color: purple;">different</span></p>
+<br />
+
+
+
+
+
+<br />
+<h2 class="red">Cascading styles...</h2>
+<p>What does it mean that a style is <em>cascading</em>?</p>
+<p>Let's look at what happens when you have multiple conflicting styles, such as different text color.</p>
+<xmp>
+This should be gray,
+<span class="purple">inside here should be purple, <span class="red">this is red</span>,
+  but is this <span class="bold red" style="color: black;">red or black or purple or gray</span>?</span>
+
+</xmp>
+<p>Here's what that will look like:</p>
+<p style="color: gray;">
+This should be gray,
+<span class="purple">inside here should be purple, <span class="red">this is red</span>,
+  but is this <span class="bold red" style="color: black;">red or black or purple or gray</span>?</span>
+</p>
+
+<p>The last part of that line has four competing color definitions, in order:
+  <ol>
+   <li>the <em>external stylesheet</em> says it should be <span style="color: gray;">gray</span> (defined in style.css), </li>
+   <li>the <em>internal stylesheet</em> says it should be <span class="purple">purple</span>, </li>
+   <li>the immediate tag says it should be <span class="bold red">bold red</span>, </li>
+   <li>and finally the <em>inline style</em> (<span class="mono">style="color: black;"</span>) 
+       says it should be <span style="color: black;">black</span>.</li>
+  </ol>
+</p>
+<p>It turns out to be <span class="bold black">bold black</span></p>
+<p>The <em>inline style</em> will always take priority over any other inherited style.</p>
+<p>The style definitions cascade, overwriting each other based on inheritance.</p>
+<p>This is why CSS stands for <em>Cascading</em> Style Sheet.</p>
+<br />
+<p>Go ahead and experiment in <em>example.html</em> and <em>style.css</em> until you get the hang out of it.</p>
+<br />
+
+<h2>Are you ready for more?</h2>
+<p>Let's move on to <a href="4.html">Lesson 4</a></p>
+<br />
+
+
+</body>
+</html>

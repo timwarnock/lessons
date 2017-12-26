@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Lesson 6</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
+<style>
+
+body {
+  font-family: Sans-serif;
+  padding: 10px;
+}
+
+xmp {
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  margin-bottom: 10px;
+  overflow: auto;
+  width: auto;
+  padding: 5px;
+  background-color: #eee;
+  width: 650px!ie7;
+  padding-bottom: 20px!ie7;
+  max-height: 600px;
+}
+
+.mono {
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+}
+
+br {
+  clear: both;
+}
+
+#weatherbox {
+  color: #666;
+}
+#weatherbox em {
+  font-size: 16pt;
+  color: #999;
+  font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Welcome to the 6th Lesson</h1>
+<p>Let's take a minute and talk about the weather :)</p>
+<br />
+
+<h2>How's the Weather in Taipei?</h2>
+<div id="weatherbox">...</div>
+<br />
+
+
+<h2>How do we do this?</h2>
+<p>If you view-soure on this page, you'll see the following HTML:</p>
+<xmp><h2>How's the Weather in Taipei?</h2>
+<div id="weatherbox">...</div>
+</xmp>
+<p>That's not very helpful, but notice the empty <span class="mono">&lt;div&gt;</span> with <span class="mono">id="weatherbox"</span>,
+  what we can do is use JavaScript to set the text inside that <span class="mono">&lt;div&gt;</span>. </p>
+<p>You've already learned how to update the text inside an HTML element, something like this:</p>
+<xmp><script>
+  function weatherbox(msg = '...') {
+    document.getElementById("weatherbox").innerHTML = msg;
+  };
+</script>
+</xmp>
+<p>But in this case we first need to know the current weather in Taipei. We'll need our JavaScript to ask Yahoo for the weather.</p>
+<br />
+<h3>Getting the Weather from Yahoo</h3>
+<p>Yahoo provides what's called an API (Application Programmer Interface),
+   that you can use to get the current weather for almost every city on earth.</p>
+<p>Yahoo provides excellent documentation for this API, take a look <a target="_new" href="https://developer.yahoo.com/weather/">here</a></p>
+<p>I've assigned the API response for Taipei weather to a variable called <span class="mono">res</span>, this means you can access
+   the API response from the console, e.g.,</p>
+<xmp> > res.atmosphere.humidity
+ "69"
+</xmp>
+<p>Go ahead and open the console on this page and test it out. You can browse through the <span class="mono">res</span> variable and see all kinds of interesting data.</p>
+<br />
+
+<h3>JSON and Callback functions</h3>
+<p>There are two important concepts here, JSON and Callback functions. These concepts are almost universal
+   in the realm of web applications.</p>
+<p><strong>JSON</strong> stands for JavaScript Object Notation,
+    but this is just a fancy way of saying that the API responds directly with JavaScript.
+    Basically, JSON is JavaScript, and it typically only defines a single object (such as the current weather).</p>
+<p><strong>Callback</strong> function is a JavaScript function that will be invoked <em>after</em> the API responds.
+   Most web APIs will respond with JSON inside a callback function, which means that when the response is recieved the 
+   callback function will be executed.
+  In other words, put all your code that needs to process the response inside the callback function.</p>
+<p>Pretty simple actually!</p>
+<br />
+
+<p>At the very bottom of this HTML page, I included the following,</p>
+<xmp><script src="https://query.yahooapis.com/v1/public/yql?q=select atmosphere, item, wind, units from weather.forecast where woeid in (select woeid from geo.places(1) where text='taipei, tw') and u='c'&format=json&callback=callbackFunction"></script>
+</xmp>
+<p>At the end of that URL you'll see "<span class="mono">callback=callbackFunction</span>",
+   this means the script is expecting that I've ALREADY created a function called (literally) <span class="mono">callbackFunction(res)</span>, 
+   where <span class="mono">res</span> is the response. </p>
+<p>Here is a template. Remember, in the HTML this must come before the API call to Yahoo.</p>
+<xmp><script>
+
+  var res;
+
+  // callback function, will be called AFTER we get the weather from Yahoo
+  var callbackFunction = function(data) {
+    res = data.query.results.channel;
+
+    ... your code goes here ...
+
+  }
+
+</script>
+</xmp>
+<br />
+
+
+
+<h2>DIY = Do It Yourself</h2>
+<p>See if you can use everything you've learned up till now in order to create your own
+    HTML page that tells you the weather in, say, New York City!</p>
+<p><em>Hint: you'll need to modify the YQL to specify "new york, ny"</em></p>
+<br />
+
+
+<h2>Are you ready for more?</h2>
+<p>Let's move on to <a href="7.html">Lesson 7</a>.</p>
+<br />
+
+
+<script>
+  var res;
+  function weatherbox(msg = '...') {
+    document.getElementById("weatherbox").innerHTML = msg;
+  };
+
+  // callback function, will be called AFTER we get the weather from Yahoo
+  var callbackFunction = function(data) {
+    res = data.query.results.channel;
+    //
+    // set color and description of temp, humi(dity), and wind
+    var temp = res.item.condition.temp;
+    var humi = res.atmosphere.humidity;
+    var wind = res.wind.speed;
+    var temp_style = temp>25 ? '#c33' : temp<17 ? '#33c' : '#3b3';
+    var humi_style = humi>60 ? '#33c' : humi<30 ? '#c33' : '#3b3';
+    var wind_style = wind>38 ? '#c33' : wind<10 ? '#33e' : '#3b3';
+    var temp_desc  = temp>25 ? 'an uncomfortable' : temp<17 ? 'a chilly' : 'a comfortable';
+    var humi_desc  = humi>60 ? 'an uncomfortable' : humi<30 ? 'a dry'    : 'a comfortable';
+    var wind_desc  = wind>38 ? 'a stormy'         : wind<10 ? 'a calm'   : 'a breezy';
+    weatherbox('<p>According to Yahoo, it\'s <em>' + res.item.condition.text + '</em> outside</p>'
+      + '<p>the temperature is ' + temp_desc + ' <em id="weatherbox_temp">' + temp + ' ' + res.units.temperature + '</em></p>'
+      + '<p>the humidity is ' + humi_desc + ' <em id="weatherbox_humi">' + humi + '%</em></p>' 
+      + '<p>and the wind is ' + wind_desc + ' <em id="weatherbox_wind">' + wind + ' ' + res.units.speed + '</em></p>'
+    );
+    document.getElementById("weatherbox_temp").style.color = temp_style;
+    document.getElementById("weatherbox_humi").style.color = humi_style;
+    document.getElementById("weatherbox_wind").style.color = wind_style;
+  };
+
+</script>
+
+<script src="https://query.yahooapis.com/v1/public/yql?q=select atmosphere, item, wind, units from weather.forecast where woeid in (select woeid from geo.places(1) where text='taipei, tw') and u='c'&format=json&callback=callbackFunction"></script>
+
+</body>
+</html>

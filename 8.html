@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Lesson 8</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+<style>
+
+#body {
+  padding: 10px;
+}
+
+</style>
+<script>
+
+function toggled() {
+  for (var i=0; i < arguments.length; i++) {
+    var el = document.getElementById(arguments[i]);
+    el.style.display = el.style.display === 'none' ? '' : 'none';
+  }
+}
+
+function toggleindent() {
+  var el = document.getElementById('body');
+  el.style.paddingLeft = el.style.paddingLeft === '60px' ? '10px' : '60px';
+}
+
+</script>
+</head>
+<body>
+<div id="page">
+
+<div id="header" style="display:none;">
+HTML <span class="gray">+</span> CSS <span class="gray">+</span> Javascript <span class="gray">Lessons</span>
+</div>
+
+<div id="body">
+
+
+
+<h1>Welcome to the 8th Lesson</h1>
+<p>I think this design is kind fo boring. Wouldn't you agree?</p>
+<p>Let's indent the page a bit: <a href="javascript:toggleindent();">Indent!</a> </p>
+<p>And let's add a header above: <a href="javascript:toggled('header','howto');">Header!</a>  </p>
+<br />
+
+
+<div id="howto" style="display:none">
+<h2>How did we do this?</h2>
+<p><a href="javascript:toggled('howtoc');">Magic!</a></p>
+</div>
+<br />
+
+
+<div id="howtoc" style="display:none">
+
+
+<h2>No magic, it's just HTML + CSS + Javascript (of course)</h2>
+<p>The first thing you do is create invisible elements on the page, like so:</p>
+<xmp><div id="header" style="display:none;">
+  ...
+</div>
+</xmp>
+<p>You can also use an HTML5 <em>header</em> element, like so:</p>
+<xmp><header style="display:none;">
+  ...
+</header>
+</xmp>
+<p>I used the <em>div</em> approach, and my CSS looks like this:</p>
+<xmp>html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Sans-Serif;
+}
+#body {
+  width: 100%;
+  padding: 10px;
+}
+#header {
+  width: 100%;
+  border-bottom: 3px solid black;
+  margin-bottom: 20px;
+  padding: 20px 60px;
+  font-size: 32pt;
+  background-color: #333;
+  color: #d0d0d9;
+}
+</xmp>
+<p>Notice that I removed the margin and padding at the top-level of html and body.</p>
+<p>I did this because I didn't want my header to have whitespace around it.</p>
+<p>In order to make the rest of the page have the same margin it did before, I added a <em>div#body</em>.</p>
+<p>The structure of the HTML is like this:</p>
+<xmp><html>
+<head>...</head>
+<body>
+
+<div id="header" style="display:none">
+...
+</div>
+
+<div id="body">
+...
+...
+...
+</div>
+
+</body>
+</html>
+</xmp>
+<p>So all this really does is create a webpage that has a header that is not displayed, and looks exactly like it did before.</p>
+<p>Not very useful on the surface, but this is where the Javascript comes in.</p>
+<p>I created the following Javascript functions:</p>
+<xmp><script>
+  
+  function toggled() {
+    for (var i=0; i < arguments.length; i++) {
+      var el = document.getElementById(arguments[i]);
+      el.style.display = el.style.display === 'none' ? '' : 'none';
+    }
+  }
+  
+  function toggleindent() {
+    var el = document.getElementById('body');
+    el.style.paddingLeft = el.style.paddingLeft === '60px' ? '10px' : '60px';
+  }
+
+</script>
+</xmp>
+<p>These functions allow me to toggle the display of a given HTML element, as well as toggle the indent of the body.</p>
+<p>All I needed to do was call the function in a link, <a href="javascript:toggled('readyformore');">like so</a>:</p>
+<xmp><a href="javascript:toggled('readyformore');">like so</a>
+</xmp>
+<br />
+
+
+</div><!--end of div#howtoc -->
+
+
+<div id="readyformore" style="display:none;">
+<h2>DIY (Do it Yourself)</h2>
+<p>See if you can create your own header, and try toggling the display of other html elements.</p>
+<p>Can you modify other styles? Like maybe use Javascript to change the header background-color?</p>
+<br />
+
+
+<h2>Are you ready for more?</h2>
+<p>I think I'll keep this header and use it in in the next lesson.</p>
+<p>Let's move on to <a href="9.html">Lesson 9</a>.</p>
+<br />
+</div>
+
+
+
+
+
+</div><!-- end of div#body -->
+<div id="footer" style="display:none;">
+this is the footer
+</div>
+
+
+</div><!-- end of div#page -->
+</body>
+</html>

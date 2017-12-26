@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Lesson 4</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
+<style>
+
+body {
+  font-family: Sans-serif;
+  padding: 10px;
+}
+
+xmp {
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  margin-bottom: 10px;
+  overflow: auto;
+  width: auto;
+  padding: 5px;
+  background-color: #eee;
+  width: 650px!ie7;
+  padding-bottom: 20px!ie7;
+  max-height: 600px;
+}
+
+.mono {
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+}
+
+br {
+  clear: both;
+}
+#kittenbox {
+  display: block;
+  content: ""; clear: both; display: table;
+  width: 630px;
+  background-color: #eee;
+  padding: 0px;
+  margin: 0px;
+}
+#kittenbox img {
+  float: left;
+  padding: 4px;
+  margin: 0px;
+  border: 0px;
+}
+
+
+</style>
+</head>
+<body>
+
+<h1>Welcome to the 4th lesson</h1>
+
+<p>You've done so well that I'm rewarding you with kittens!</p>
+
+<div id="kittenbox">
+<img src="img_kittens_350x233.jpg" />
+<img src="img_kittens_260x233.jpg" />
+<img src="img_kittens_302x233.jpg" />
+<img src="img_kittens_308x233.jpg" />
+</div>
+<br />
+
+
+
+
+
+
+<h2>How do we do this?</h2>
+<p>It's easy, the HTML code for the above kittens looks like this:</p>
+<xmp><div id="kittenbox">
+<img src="img_kittens_350x233.jpg" />
+<img src="img_kittens_260x233.jpg" />
+<img src="img_kittens_302x233.jpg" />
+<img src="img_kittens_308x233.jpg" />
+</div>
+<br />
+</xmp>
+<br />
+
+<h3>Let's try it yourself</h3>
+<p>Copy and paste the following HTML and make a new <em>example.html</em></p>
+<xmp>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <title>Kittens!</title>
+  </head>
+  <body>
+
+    Hello Kittens!
+    <div id="kittenbox">
+    <img src="http://avant.net/lessons/img_kittens_350x233.jpg" />
+    <img src="http://avant.net/lessons/img_kittens_260x233.jpg" />
+    <img src="http://avant.net/lessons/img_kittens_302x233.jpg" />
+    <img src="http://avant.net/lessons/img_kittens_308x233.jpg" />
+    </div>
+    <br />
+
+  </body>
+</html>
+</xmp>
+<p>Notice the image <span class="mono">src</span> is set to the full URL of the image.</p>
+<p>I did this so you don't have to download the images.</p>
+<br />
+
+
+
+
+<h3>It doesn't look the same</h3>
+<p>If you opened your new <em>example.html</em> you'll notice that the images aren't aligned the way they are above.</p>
+<p>This is because you need to add CSS to make things looks <span class="bold purple">beautiful</span>.</p>
+
+<p>In particular, look at this line in the HTML</p>
+<xmp><div id="kittenbox">
+</xmp>
+<p>You've already learned about the CSS <em>class</em> attribute, you can also use an <em>id</em> attribute.</p>
+<p>The <em>id</em> is used for a specific element in the HTML, in this case, <em>kittenbox</em> contains the kitten images.</p>
+<p>For reference, <span class="mono">&lt;div&gt;</span> tags are used for what is known as block elements, like images or a block of text.</p>
+<p>And <span class="mono">&lt;span&gt;</span> is used for inline elements, like inside a line of text.</p>
+<p>In practice, this just means <span class="mono">&lt;div&gt;</span> includes a line break, and <span class="mono">&lt;span&gt;</span> does not.</p>
+<br />
+
+
+
+
+
+<h3>style.css</h3>
+<p>In order to get your CSS to refer to <span class="mono">kittenbox</span>, you'll use the follows CSS:</p>
+<xmp>#kittenbox {
+  width: 640px;
+}
+</xmp>
+<p>If you save this in your <em>style.css</em> then your kitten images will already look much better.</p>
+<p>But don't stop here, try some additional CSS and see what you can do!</p>
+<p>Change the order of the images, align them in different ways, try this and see what happens:</p>
+<xmp>#kittenbox {
+  width: 1240px;
+  text-align: center;
+}
+#kittenbox img {
+  float: left;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  border-bottom: 10px solid white;
+}
+#kittenbox img:hover {
+  border-bottom: 10px solid #ccc;
+}
+</xmp>
+</br />
+
+
+
+
+
+<h2>Are you ready for more?</h2>
+<p>If so, let's move to <a href="5.html">Lesson 5</a>.</p>
+<br />
+
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+
+
+html, body, #page {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Sans-Serif;
+}
+html { font-size:62.5%; }
+body { font-size: 14px; font-size: 1.4rem; }
+h1 { font-size: 24px; font-size: 2.4rem; }
+#page {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  position: relative;
+}
+#body {
+  padding: 10px 10px 3em 20px;
+}
+#header {
+  white-space: nowrap;
+  border-bottom: 3px solid black;
+  margin-bottom: 10px;
+  padding: 20px;
+  font-size: 20px;
+  background-color: #333;
+  color: #d0d0d9;
+}
+#footer {
+  border-top: 1px solid black;
+  position: absolute;
+  bottom: 0;
+  height: 3em;
+  width: 100%;
+}
+
+/* LARGE desktop */
+@media only screen and (min-width: 720px) {
+  #header {
+    padding: 20px 60px;
+    margin-bottom: 20px;
+    font-size: 32px;
+  }
+  #body {
+    padding: 10px 10px 3em 60px;
+    max-width: 1200px;
+  }
+}
+
+/* TINY smartphone */
+@media only screen and (max-width: 380px) {
+  #header {
+    font-size: 15px;
+  }
+}
+
+
+
+em { color: black; }
+
+p { color: #888; }
+
+xmp {
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  margin-bottom: 10px;
+  overflow: auto;
+  width: auto;
+  padding: 5px;
+  background-color: #eee;
+  width: 650px!ie7;
+  padding-bottom: 20px!ie7;
+  max-height: 600px;
+}
+
+br {
+  clear: both;
+}
+
+.mono {
+  font-style: normal;
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+}
+
+
+.bold { font-weight: bold; } 
+.purple { color: purple; } 
+.red { color: red; }
+.gray, .grey { color: gray; }
+
+

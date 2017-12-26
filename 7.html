@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Lesson 7</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
+<style>
+
+body {
+  font-family: Sans-serif;
+  padding: 10px;
+}
+
+xmp {
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  margin-bottom: 10px;
+  overflow: auto;
+  width: auto;
+  padding: 5px;
+  background-color: #eee;
+  width: 650px!ie7;
+  padding-bottom: 20px!ie7;
+  max-height: 600px;
+}
+
+.mono {
+  font-style: normal;
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+}
+
+br {
+  clear: both;
+}
+
+.red { background-color:red; }
+.darkred { background-color:darkred; }
+.blue { background-color:blue; }
+.darkblue { background-color:darkblue; }
+.green { background-color:green; }
+.darkgreen { background-color:darkgreen; }
+.gray { background-color:gray; }
+.darkgray { background-color:darkgray; }
+.lightcoral { background-color:lightcoral; }
+.springgreen { background-color:springgreen; }
+.turquoise { background-color:turquoise; }
+.silver { background-color:silver; }
+.crimson { background-color:crimson; }
+.olivedrab { background-color:olivedrab; }
+.dodgerblue { background-color:dodgerblue; }
+.slategray { background-color:slategray; }
+
+.container {
+  content: "";
+  clear: both;
+  display: table;
+  width: 800px;
+}
+
+.colorbox {
+  float: left;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 150px;
+  padding: 20px;
+  margin: 5px;
+}
+
+div.opaque {
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+</style>
+</head>
+<body>
+
+<h1>Welcome to the 7th Lesson</h1>
+<p>We've barely scratched the surface of HTML, CSS, JavaScript, and remote APIs 
+   -- and you can see how things can get quite complicated.</p>
+
+<p>Let's take a break and learn something easy: 
+<strong style="color: violet;">Colors!</strong>
+</p>
+<br />
+
+
+<h2>I don't want ugly colors</h2>
+<p>Me neither. Fortunately, HTML allows you to specify over 16-million colors.</p>
+<p>You might hear someone say "it's technically 24-bit color", and that's true, but don't worry, it's easier than it sounds.</p>
+<p>HTML allows you to specify colors by: <em>Name</em>, <em>RGB</em> (Red-Green-Blue) value, or <em>HSL</em> (Hue-Saturation-Light).</p>
+<p>Modern browsers even suppot what's called an "alpha" channel to specify opacity, that is, making the color slightly transparent (see-thru).</p>
+<br />
+
+<h2>Color Names</h2>
+<p>This is the easiest approach, and you've already learned a couple of these names in early lessons!</p>
+<p>For example: What <strong style="color: violet;">color</strong> is this?</p>
+<xmp>What <strong style="color: violet;">color</strong> is this?
+</xmp>
+<br />
+<p>There are 140 Color Names supported in modern browsers, here are some examples:</p>
+
+<div class="container">
+<div class="colorbox red">red</div>
+<div class="colorbox green">green</div>
+<div class="colorbox blue">blue</div>
+<div class="colorbox gray">gray</div>
+<br />
+<div class="colorbox darkred">darkred</div>
+<div class="colorbox darkgreen">darkgreen</div>
+<div class="colorbox darkblue">darkblue</div>
+<div class="colorbox darkgray">darkgray</div>
+<br />
+<div class="colorbox lightcoral">lightcoral</div>
+<div class="colorbox springgreen">springgreen</div>
+<div class="colorbox turquoise">turquoise</div>
+<div class="colorbox silver">silver</div>
+<br />
+<div class="colorbox crimson">crimson</div>
+<div class="colorbox olivedrab">olivedrab</div>
+<div class="colorbox dodgerblue">dodgerblue</div>
+<div class="colorbox slategray">slategray</div>
+</div>
+<p>While this is easy, you can see where it can get difficult trying to remember obscure names;
+  especially if you're a non-native English speaker, or not a baseball fan, or not a fan of the Brooklyn 
+  (I mean Los Angeles) <strong style="color: dodgerblue">Dodgers</strong></p>
+<p>Fortunately, there's better and far more powerful ways to specify colors.</p>
+<p>And best of all, you can specify millions of different colors without having to remember idiomatic English names.</p>
+<br />
+
+
+<h2>RGB Colors</h2>
+<p>Reg-Green-Blue color definitions are the most common method methods used on the web.</p>
+<p>You simply specify a numeric value for Red, Green, and Blue separately.</p>
+<p>In decimal, these values are from 0 to 255.
+<p>For example:</p>
+<div class="container">
+<div class="colorbox" style="background-color: rgb(255,0,0);">rgb(255,0,0)</div>
+<div class="colorbox" style="background-color: rgb(0,255,0);">rgb(0,255,0)</div>
+<div class="colorbox" style="background-color: rgb(0,0,255);">rgb(0,0,255)</div>
+<div class="colorbox" style="background-color: rgb(0,0,0);">rgb(0,0,0)</div>
+<br />
+<div class="colorbox" style="background-color: rgb(255,192,0);">rgb(255,192,0)</div>
+<div class="colorbox" style="background-color: rgb(90,255,90);">rgb(90,255,90)</div>
+<div class="colorbox" style="background-color: rgb(140,140,255);">rgb(140,140,255)</div>
+<div class="colorbox" style="background-color: rgb(128,128,128);">rgb(128,128,128)</div>
+</div>
+<br />
+<p>However, the most common approach is to use <em>Hexidecimal numbers</em>, like so:
+<div class="container">
+<div class="colorbox" style="background-color: #ff0000;">#ff0000</div>
+<div class="colorbox" style="background-color: #00ff00;">#00ff00</div>
+<div class="colorbox" style="background-color: #0000ff;">#0000ff</div>
+<div class="colorbox" style="background-color: #000000;">#000000</div>
+<br />
+<div class="colorbox" style="background-color: #a09283;">#a09283</div>
+<div class="colorbox" style="background-color: #a0756a;">#a0756a</div>
+<div class="colorbox" style="background-color: #a0574f;">#a0574f</div>
+<div class="colorbox" style="background-color: #a03d29;">#a03d29</div>
+</div>
+<p>Hexidecimal numbers simply count from 0 to F, for example:</p>
+<xmp>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f, 10, 11, 12, ...
+</xmp>
+<p>This is known as a base-16 counting system (because there's 16 single digits).</p>
+<p>0 to FF is the same as 0 to 255 in decimal (base-10).
+   In HTML, you specify a Hex color with a # followed by the number.</p>
+<p>You can use uppercase <em class="mono">#FFFFFF</em> or lowercase <em class="mono">#ffffff</em></p>
+<p>Hex colors are the most common method for specifying color on webpages, partly for historical reasons,
+   but also because it's compact and easy to manage. You can even use a shotrhand, like this:</p>
+<div class="container">
+<div class="colorbox" style="background-color: #e99;">#e99</div>
+<div class="colorbox" style="background-color: #e66;">#e66</div>
+<div class="colorbox" style="background-color: #e33;">#e33</div>
+<div class="colorbox" style="background-color: #e00;">#e00</div>
+<br />
+<div class="colorbox" style="background-color: #99e;">#99e</div>
+<div class="colorbox" style="background-color: #66e;">#66e</div>
+<div class="colorbox" style="background-color: #33e;">#33e</div>
+<div class="colorbox" style="background-color: #00e;">#00e</div>
+<br />
+<div class="colorbox" style="background-color: #9e9;">#9e9</div>
+<div class="colorbox" style="background-color: #6e6;">#6e6</div>
+<div class="colorbox" style="background-color: #3e3;">#3e3</div>
+<div class="colorbox" style="background-color: #0e0;">#0e0</div>
+<br />
+<div class="colorbox" style="background-color: #999;">#999</div>
+<div class="colorbox" style="background-color: #666;">#666</div>
+<div class="colorbox" style="background-color: #333;">#333</div>
+<div class="colorbox" style="background-color: #111;">#111</div>
+</div>
+<br />
+
+
+
+
+<h2>HSL Colors</h2>
+<p>You can also specify colors using HSL (Hue-Saturation-Lightness).</p>
+<p>Where Hue is the degree on the color wheel from 0 to 360, Saturation and Lightness are both specified as a percentage.</p>
+<p>For example:</p>
+<div class="container">
+<div class="colorbox" style="background-color: hsl(0,90%,60%);">hsl(0,90%,60%)</div>
+<div class="colorbox" style="background-color: hsl(120,80%,50%);">hsl(120,80%,50%)</div>
+<div class="colorbox" style="background-color: hsl(240,70%,40%);">hsl(240,70%,40%)</div>
+<div class="colorbox" style="background-color: hsl(300,50%,30%);">hsl(300,50%,30%)</div>
+<br />
+</div>
+<p>There are excellent resources online about 
+   <a target="_new" href="https://www.w3schools.com/html/html_colors.asp">HTML colors</a> and
+   <a target="_new" href="https://en.wikipedia.org/wiki/Color_theory">Color Theory</a> in general, such as
+   <a target="_new" href="http://colorizer.org">coloroizer.org</a>.</p>
+<br />
+
+
+
+<h2>Transparency (alpha)</h2>
+<p>Both RGB and HSL support transparency using <em>rgba()</em> and <em>hsla()</em> functions.</p>
+<p>In these fucntions, there is a 4th parameter that specifies the opacity from 0 (transparent) to 1 (fully visible).</p>
+<p>For example:</p>
+<div class="container" style="background-image: url('img_kitten_bw_900x240.jpg'); background-repeat: repeat-x;">
+<div class="colorbox" style="background-color: hsla(0,0%,0%,1);">hsla(0,0%,0%,1)</div>
+<div class="colorbox" style="background-color: hsla(0,0%,0%,0.3);">hsla(0,0%,0%,0.3)</div>
+<div class="colorbox" style="background-color: rgba(90,0,240,0.8);">rgba(90,0,240,0.8)</div>
+<div class="colorbox" style="background-color: rgba(90,0,240,0.4);">rgba(90,0,240,0.4)</div>
+<br />
+<div class="colorbox" style="background-color: rgba(255,0,0,0.6);">rgba(255,0,0,0.6)</div>
+<div class="colorbox" style="background-color: rgba(0,255,0,0.6);">rgba(0,255,0,0.6)</div>
+<div class="colorbox" style="background-color: rgba(0,0,255,0.6);">rgba(0,0,255,0.6)</div>
+<div class="colorbox" style="background-color: rgba(99,99,99,0.6);">rgba(99,99,99,0.6)</div>
+<br />
+<div class="colorbox" style="background-color: rgba(255,0,0,0.3);">rgba(255,0,0,0.3)</div>
+<div class="colorbox" style="background-color: rgba(0,255,0,0.3);">rgba(0,255,0,0.3)</div>
+<div class="colorbox" style="background-color: rgba(0,0,255,0.3);">rgba(0,0,255,0.3)</div>
+<div class="colorbox" style="background-color: rgba(99,99,99,0.3);">rgba(99,99,99,0.3)</div>
+</div>
+<p>That said, you can also specify transparency on any HTML element using the <em>opacity</em> property in CSS.</p>
+<p>For example:</p>
+<xmp>div.opaque {
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+</xmp>
+<p>If you use this technique, even the text will become transparent, which may not be desired.</p>
+<p>You can use <em>rgba()</em> or <em>hsla()</em> if you want an opaque background with solid text.</p>
+<p>However, let's see what happens when we add the <em>opaque</em> class to the above div, like this:</p>
+<xmp><div class="opaque">
+  ...
+</div>
+</xmp>
+<div class="container opaque" style="background-image: url('img_kitten_bw_900x240.jpg'); background-repeat: repeat-x;">
+<div class="colorbox" style="background-color: hsla(0,0%,0%,1);">hsla(0,0%,0%,1)</div>
+<div class="colorbox" style="background-color: hsla(0,0%,0%,0.3);">hsla(0,0%,0%,0.3)</div>
+<div class="colorbox" style="background-color: rgba(90,0,240,0.8);">rgba(90,0,240,0.8)</div>
+<div class="colorbox" style="background-color: rgba(90,0,240,0.4);">rgba(90,0,240,0.4)</div>
+<br />
+<div class="colorbox" style="background-color: rgba(255,0,0,0.6);">rgba(255,0,0,0.6)</div>
+<div class="colorbox" style="background-color: rgba(0,255,0,0.6);">rgba(0,255,0,0.6)</div>
+<div class="colorbox" style="background-color: rgba(0,0,255,0.6);">rgba(0,0,255,0.6)</div>
+<div class="colorbox" style="background-color: rgba(99,99,99,0.6);">rgba(99,99,99,0.6)</div>
+<br />
+<div class="colorbox" style="background-color: rgba(255,0,0,0.3);">rgba(255,0,0,0.3)</div>
+<div class="colorbox" style="background-color: rgba(0,255,0,0.3);">rgba(0,255,0,0.3)</div>
+<div class="colorbox" style="background-color: rgba(0,0,255,0.3);">rgba(0,0,255,0.3)</div>
+<div class="colorbox" style="background-color: rgba(99,99,99,0.3);">rgba(99,99,99,0.3)</div>
+</div>
+<p>Notice that the opacity combines when there are overlapping transparent elements.</p>
+<p>In other words, everything contained inside the <em class="mono">&lt;div class="opaque"&gt;</em> will be more opaque than it already was.</p>
+<br />
+
+
+
+<h2>Are you ready for more?</h2>
+<p>Let's move on to <a href="8.html">Lesson 8</a>.</p>
+<br />
+
+
+
+</body>
+</html>

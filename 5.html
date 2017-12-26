@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Lesson 5</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
+<style>
+
+body {
+  font-family: Sans-serif;
+  padding: 10px;
+}
+
+xmp {
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  margin-bottom: 10px;
+  overflow: auto;
+  width: auto;
+  padding: 5px;
+  background-color: #eee;
+  width: 650px!ie7;
+  padding-bottom: 20px!ie7;
+  max-height: 600px;
+}
+
+.mono {
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+}
+
+br {
+  clear: both;
+}
+#kittenbox {
+  display: block;
+  content: ""; clear: both; display: table;
+  width: 1220px;
+  background-color: #eee;
+  padding: 0px;
+  margin: 0px;
+}
+#kittenbox img {
+  float: left;
+  padding: 4px 0 8px 0;
+  margin: 0px;
+  border: 0px;
+  opacity: 0.4;
+  filter: alpha(opacity=40); /* msie */
+}
+#kittenbox img:hover {
+  background-color: #ccc;
+  opacity: 1.0;
+  filter: alpha(opacity=100); /* msie */
+}
+#meowbox, #meowbox {
+  width: 640px;
+  padding: 8px;
+  text-align: center;
+  font-size: 18pt;
+}
+
+</style>
+<script>
+function meowbox(meow = 'meow') {
+    document.getElementById("meowbox").innerHTML = meow;
+}
+</script>
+</head>
+<body>
+
+<h1>Welcome to the 5th Lesson</h1>
+<p>Let's make things more interesting.</p>
+<div id="kittenbox">
+<img src="img_kittens_260x233.jpg"  oncontextmenu="meowbox('ok, this is getting boring.')" onmouseover="meowbox('meow? try clicking...')"  ondrag="meowbox('nice! what about right-click?')"  onclick="meowbox('good! now trying double-click...')"  ondblclick="meowbox('impressive! what about dragging?')" />
+<img src="img_kittens_350x233.jpg"  oncontextmenu="meowbox('woem woem')" onmouseover="meowbox('meow meow')"  ondrag="meowbox('ok, this is getting old')"  onclick="meowbox(':yawn:')"  ondblclick="meowbox('thanks for the click')" />
+<img src="img_kittens_308x233.jpg"  oncontextmenu="meowbox('woem')" onmouseover="meowbox('meow')"  ondrag="meowbox('woah! where are we going?')"  onclick="meowbox('ok')"  ondblclick="meowbox('why did you click me?')" />
+<img src="img_kittens_302x233.jpg"  oncontextmenu="meowbox('woem woem woem woem')" onmouseover="meowbox('meow meow meow meow')"  ondrag="meowbox('Yay, this is fun!')"  onclick="meowbox('hello?')"  ondblclick="meowbox('hello!')" />
+</div>
+<div id="meowbox">...</div>
+
+
+<h2>How do we do this?</h2>
+<p>We do this with a programming language known as JavaScript (or ECMAScript).</p>
+<p>JavaScript can be used for simple interactivity of a webpage (like the above kittens), or for creating advanced web applications.</p>
+<br />
+
+
+
+<h2>Let's take a look</h2>
+<p>You can always view the source of this or any webpage to investigate the code yourself, but let's walk through this carefully.</p>
+<p>Within the <span class="mono">&lt;head&gt;</span> of this page, I added the following:</p>
+<xmp><script>
+function meowbox(meow = 'meow') {
+    document.getElementById("meowbox").innerHTML = meow;
+}
+</script>
+</xmp>
+<br />
+
+<p>The <span class="mono">&lt;script&gt;</span> tag is used to define this kind of client-side script.</p>
+<p>There is also a <span class="mono">&lt;noscript&gt;</span> tag if you want to write HTML that will only appear if JavaScript is not enabled.</p>
+<p>In our case, the JavaScript defined a function called <em>meowbox()</em>. This function will replace the text inside the following HTML tag:</p>
+<xmp><div id="meowbox">...</div>
+</xmp>
+<p>Pretty simple, anytime <em>meowbox()</em> is called, it will replace the text in that <span class="mono">&lt;div&gt;</span></p>
+<br />
+
+
+
+<h2>Run it yourself</h2>
+<p>Type the following into the address bar above:</p>
+<xmp>javascript:meowbox("this is from the address bar");
+</xmp>
+<br />
+<p>As a result, you can put JavaScript in a link as follows:</p>
+<xmp><a href="javascript:alert('This is an alert');">Click me</a>!
+</xmp>
+<p><a href="javascript:alert('This is an alert');">Click me</a>!</p>
+<br />
+<p>But for testing it's easier to just use the console:</p>
+<xmp> meowbox("hello from the console")
+</xmp>
+<p>Most browsers will include a JavaScript console, see if your browser has one and run the above code.
+    You should see the text underneath the kittens change to whatever you want.</p>
+<br />
+
+
+
+<h2>Update the HTML</h2>
+<p>There are many ways to get JavaScript to work with your HTML, take a look:</p>
+<xmp><div id="kittenbox">
+<img src="img_kittens_308x233.jpg" onclick="meowbox('meow!')" />
+<img src="img_kittens_302x233.jpg" onclick="meowbox('meow meow meow meow')" />
+<img src="img_kittens_350x233.jpg" onclick="meowbox('meow meow')" />
+<img src="img_kittens_260x233.jpg" onclick="meowbox('meow?')" />
+</div>
+<div id="meowbox">...</div>
+</xmp>
+<p>The <span class="mono">onclick</span> attribute allows for you to write any JavaScript, and it will be executed when the user clicks on that element.</p>
+<p>Pretty cool!</p>
+<br />
+
+
+
+<h2>Hover and Mouse Events</h2>
+<p>In most cases, you can just use CSS for mouseover effects, for example:</p>
+<xmp>#kittenbox img {
+  float: left;
+  padding: 4px;
+  opacity: 0.4;
+  filter: alpha(opacity=40); /* msie */
+}
+#kittenbox img:hover {
+  background-color: #ccc;
+  opacity: 1.0;
+  filter: alpha(opacity=100); /* msie */
+}
+</xmp>
+<p>The <em>img:hover</em> defines the style for when the mouse is hovering over that element.</p>
+<p> * in this case I changed the opacity, which requires a small hack to work on older versions of Internet Explorer.</p>
+<br />
+
+<p>You can also use an <span class="mono">onmouseover</span> attribute:</p>
+<xmp><div id="meowbox">...</div>
+<div id="kittenbox">
+<img src="img_kittens_308x233.jpg" onmouseover="meowbox('meow!')" />
+<img src="img_kittens_302x233.jpg" onmouseover="meowbox('meow meow meow meow')" />
+<img src="img_kittens_350x233.jpg" onmouseover="meowbox('meow meow')" />
+<img src="img_kittens_260x233.jpg" onmouseover="meowbox('meow?')" />
+</div>
+</xmp>
+<p>Save this along with the above JavaScript in your <em>example.html</em> and see if you can get it working.</p>
+<br />
+
+
+<h2>Event Handlers</h2>
+<p>Attributes like <span class="mono">onclick</span> and <span class="mono">onmouseover</span> are called Event Handlers, or also HTML DOM Events, and there's many of them.</p>
+<p>Try playing around with other events, like <span class="mono">ondblclick</span>, <span class="mono">ondrag</span>, <span class="mono">oncopy</span>, etc.</p>
+<br />
+
+
+<h2>Are you ready for more?</h2>
+<p>Let's move on to <a href="6.html">Lesson 6</a>.</p>
+<br />
+
+
+</body>
+</html>
