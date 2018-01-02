@@ -31,70 +31,80 @@ HTML <span class="gray">+</span> CSS <span class="gray">+</span> Javascript <spa
 
 
 
+
+
 <h1>Welcome to the 9th Lesson</h1>
-<p>Let's talk about Responsive Web Design</p>
-https://en.wikipedia.org/wiki/Responsive_web_design
-Responsive web design
-User interface plasticity
-Progressive enhancement
-Graceful degradation, fault tolerance
-Adaptive web design
-Fluidity, Fixity? Synergy!
-Basically, we don't want it to look like shit.
-Here are some useful techniques:
+<p>If you viewed the previous lessons on a mobile device you may have noticed that they look like shit.
+   For starters the text appears too small. Zoom in, and the text doesn't wrap,
+	which means you have to scroll left and right. Terrible!
+    This is a common problem and should be solved with good design.</p>
+<p>One solution is called 
+<a href="https://en.wikipedia.org/wiki/Responsive_web_design" target="_new">Responsive Web Design</a>.
+Responsive web design is an industry buzzword like
+User interface plasticity, or
+Progressive enhancement, or
+Graceful degradation, or
+Adaptive web design, or
+Content fluidity (or is it Fixity?).
+Whenever people talk about these concepts and how they're different, I want to tell them to shove their Corporate Synergy
+		 up their ass, I mean, up their Disrputive Paradigm Shifting Strategic Verticals of Adaptively Responsive Web Design.</p>
+<p>Let's avoid the nonsense. We just want our webpage to not look like shit.</p>
 <br />
+
+
+
 
 
 
 <h2>Keep it Simple, Stupid</h2>
-<p>Mobile First</p>
-<p>Viewport</p>
+<p>This is the KISS principle. It applies to everything in life. Do NOT make things uncessarily complicated.
+  Add this single line into the
+  <span class="mono">&lt;header&gt;</span> element of the HTML.</p>
 <xmp><meta name="viewport" content="width=device-width, initial-scale=1.0">
 </xmp>
-<br />
-
-
-
-<h2>Font-sizing</h2>
-<p>Font-sizing</p>
-<xmp><p style="font-size:3vw">This is relative to the viewport width!</p> 
-</xmp>
-<p style="font-size:3vw">This is relative to the viewport width!</p> 
-
-
-https://snook.ca/archives/html_and_css/font-size-with-rem
-<xmp>html { font-size: 62.5%; } 
-body { font-size: 14px; font-size: 1.4rem; } /* =14px */
-h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
-</xmp>
+<p>The device-width is the width of a device's screen (like a smartphone screen).
+  This will set the webpage to that width. In other words, rotating the device 
+   will do what we want it to do. No more side scrolling!
+</p>
+<p>The "initial-scale=1.0" prevents an initial zoom level (so we're not zoomed way out). 
+   For a properly designed website, this is all that's needed to get things working well on a smartphone.
+    However, if we've got gigantic fixed-width images and our content doesn't scale to small screens,
+    then we've got a lot more work to do to avoid side-scrolling.</p>
 <br />
 
 
 
 
 <h2>Image-sizing</h2>
-<p>yep</p>
+<p>Images can be sized (relative to their container) by using a %, like so:</p>
 <xmp><img src="img_kitten_bw_900x240.jpg" style="width:90%">
 </xmp>
 <img src="img_kitten_bw_900x240.jpg" style="width:90%;" />
-<p>yep</p>
+<p>Resize the browser and make it really small to see how this works. 
+  If you view this on smartphone, rotate your display. The image should scale appropriately.
+  </p>
 <br />
 
 
 
 
 <h2>@media queries</h2>
-<p>like so</p>
-<xmp>
-@media only screen and (min-width: 720px) {
-
+<p>CSS allows different styles for different screen sizes.</p>
+<p>There are variety of ways to do this, most common is a "media query", like so:</p>
+<xmp>@media only screen and (min-width: 720px) {
    ...
-
 }
 </xmp>
-<p>so for example</p>
+<p>Any CSS inside the above media query will apply ONLY to screens that are 720 pixels or wider.
+  Unfortunately, this can get complicated fast. 
+  Let's remember the KISS principle. Start simple with a design
+   that looks good on a small display (<i>Mobile First</i>, another buzzword), and then add styles for larger displays.
+   </p>
+<p>Here's a simple example:</p>
 <xmp>#body {
+  font-family: Sans-Serif;
   padding: 10px 10px 3em 20px;
+  max-width: 800px;
 }
 #header {
   border-bottom: 3px solid black;
@@ -105,7 +115,6 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
   color: #d0d0d9;
 }
 
-/* LARGE desktop */
 @media only screen and (min-width: 720px) {
   #header {
     padding: 20px 60px;
@@ -114,18 +123,145 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
   }
   #body {
     padding: 10px 10px 3em 60px;
-    max-width: 1200px;
-  }
-}
-
-/* TINY smartphone */
-@media only screen and (max-width: 380px) {
-  #header {
-    font-size: 15px;
   }
 }
 </xmp>
+<p>This is an easy way to make sure our webpage doesn't look like shit.
+  Just remember to <i>Keep it Simple, Stupid</i>.</p>
+<br />
 
+
+
+
+<h2>Make it Complicated</h2>
+<p>
+This is the opposite of the KISS principle. For example: <i>
+Why have 20 lines of effective CSS when we can have 5,000 lines of convoluted nonsense? 
+Obviously, there's no job security in 20-lines of CSS.</i> As we'll see, website font-sizing
+is a great example of the <i>Make it Complicated</i> principle.
+</p>
+
+<h3>CSS Font-sizing</h3>
+<p>
+  In CSS, we can specify a font-size in "px", "pt", "em", "ex", "%", "mm", "in", "ch", "vw", "rem", and maybe a dozen others.
+  Most of these, like "px" and "pt", behave the same but offer different numeric measurements (like celsius and fahrenheit), and 
+   some function as multipliers, like "%" and "em".
+</p>
+<p>You may wonder, why are there so many different ways to specify font size?</p>
+<p>As best as I can tell, the <a href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium" target="_new">W3C</a>
+   is fighting an endless battle between people that went to art school and the people who create the browsers.
+   Most of the font-sizes come from the world of print, legacy traditions of type-setting and typography, a world where
+   we have universal standards of size: an inch is always an inch, a millimeter is always a millimeter,
+   and 25.4 millimeters is 1-inch on every single piece of paper that has ever existed.
+   On a webpage these rules don't apply. If we project our screen onto the side of a building, an inch can become a meter.
+   On a modern smartphone an inch contains more pixels than desktop displays did back when the first CSS standard was written.
+</p>
+<p>
+   I suspect that most designers prefer to use "em" because they went to art school and learned about typography. 
+   There are some technical differences between "em" and "px" (pixel), but most designers can't competently
+   explain the difference and prefer "em" out of habit, and in many cases they don't even use it correctly.
+   You'll find misuse of "em" sizing has led to a lot of awkwardly oversized text and cross-device problems.
+   It's sometimes described as the least worse option, but simply leaving out font-size is a much better option
+   (because most devices provide sensible defaults).
+</p>
+<p>
+  For example, here's an extremely common style:</p>
+<xmp>html { font-size: 62.5%; } 
+</xmp>
+<p>The 62.5% is so common that it's almost universal.
+   What this does is reduce the browsers default font-size (16px) by 62.5% (to make it 10px). 
+   The reason most often cited is that "em" will now match "px", so after the 62.5%, 1.6em is the same as 16px.
+   For similar reasons we may see 0.625em.
+   To see why this is unecessarily complicated, let's look at the following example:
+  </p>
+<xmp>html { font-size: 62.5%; } 
+body { font-size: 1.6em; }
+</xmp>
+<p>This is the same as this:</p>
+<xmp> 
+</xmp>
+<p>Yep, nothing. 1.6em is equivalent to 160%, 62.5% of 160% is just 100%, and we've accomplished nothing.</p>
+
+<p>But wait, the designers say we should use "em" to have consistent (and resizeable) text across all browsers and devices.</p>
+
+<h4>But is that true?</h4>
+
+<p>Well, a long time ago, there was a problem in IE6 (a browser that hasn't been used since 2006). 
+	In IE6 a font-size in "px" could not be modified by the user (an accessibility problem). IE6 came out in 2001.
+	This is back when people were using <span class="mono">&lt;table&gt;</span>'s to design websites. 
+	There were no iPhones. This was before 9/11.
+	</p>
+<p>Basically, IE6 had terrible support for CSS. IE6 had a lot of problems with "em" as well.
+  One particular fix involved setting the html font-size to 100%, which I guess got people into the habit of using a %, 
+  and this led to the 62.5% nonsense (ironically, "em" still doesn't work properly in IE6 even with the 62.5% trick).
+  Think how odd it is that decades later people "reset defaults" (font-size: 100%), and then set font-size to 62.5%
+  in order to use "em" as a numerical equivalent of "px". Instead, they could do nothing and it would
+  provide a better experience across all devices. In other words, websites will look like shit LESS OFTEN if we just
+  use the default font-size.
+  </p>
+
+<h4>What exactly is an em, or a rem?</h4>
+<p>As best as I can tell, back when printers used movable type (so, we're back in the year 1440?), 
+	the width of a capital M was an "em", and that's where the term comes from, I guess?
+  If we're going to reference history, I would have preferred a "g"
+  (for <a href="https://en.wikipedia.org/wiki/Johannes_Gutenberg" target="_new">Gutenberg</a>), but I digress.
+</p>
+<p> In web design, an "em" is a multiplier.
+    So for example, if our inherited style has a 15px font-size and we specify 2em, then our font-size will become 30px.
+    It's a percentage expressed without the %-sign, where 1em = 100%, 2em = 200%, etc.
+    It's really no more complicated than that, although older browsers did wonky things to em's 
+    and for a while there were designers advocating to only use "%".</p>
+<p>The "rem", or "root em", is just an "em" without any inherited multiplier, it only multiplies 
+  against the "root" (or default) font-size.
+<p>If we're using "rem" with the 62.5% trick, we're basically just using "px".
+   I guess people feel more like artists typing "1.4rem" rather than "14px".
+   Apparently, pixels are for nerds, artists use "em"?</p>
+
+<h4>Why not just use px?</h4>
+<p>This is already happening, and it's a perfectly valid approach.
+  Modern browsers and smartphones provide competent zoom and font scaling.
+  And many designers have found that
+  "em" is too confusing to work with (as complicated as exclusively using "%")
+  so they're just doing everything in "px".</p>
+<p>That said, let's not throw out the baby with the bath water. The 62.5% trick is, well, stupid -- 
+  but specifying font-size as a multiplier of the default can be very useful.</p>
+<br />
+
+
+<h2>KISS approach to font-size</h2>
+<p><b>1. Use the default font-size.</b> Don't type "font-size" in a stylesheet
+    unless you really know what you're doing.
+  Trust that every device has provided sensible default font sizes.
+  Readable text, like in this paragraph, should use the default font-size.
+  Do NOT be presumptious and assume that you know better for all devices and all users.
+</p>
+<p><b>2. Use "%" sparingly</b>, and always with respect to the default font-size.
+  For example, sometimes we need a menu or tool-tip that isn't as large as the normal text 
+  and there's no html to get the job done (like <span class="mono">&lt;sub&gt;</span>
+    or <span class="mono">&lt;sup&gt;</span>).
+  In these cases, use "%" sparingly in order to ensure that we will be respecting all devices and all users.
+  Your job isn't to make people with glasses squint, it's to make sure that accessibly-sized fonts don't break the layout.</p>
+<p>
+  Also, "%" is more compatible across browsers than "em". I'm sorry designers, but that's the truth.
+  If you're really concerned about old versions of IE, then don't use "em".
+  </p>
+<p><b>3. Use "px" sparingly.</b> 
+  In some cases it's easier and more reusable to use "px"
+    rather than a multiplier font-size (like "em", "rem", or "%"). 
+  For example, in an image gallery
+    with fixed-size previews, it may be necessary to use "px" for the caption.
+</p>
+
+<h4>Keep the edge-cases on the edge</h4>
+<p>Basically, a good stylesheet should never mention font-size. And if it does, it should do so sparingly with "%"
+  or "px". There's no use case for "em" other than making a website look like shit more often than had it not used "em".</p>
+<p>That said, there exists edge cases, like if we need our font-size to scale with the viewport width.
+  Basically, if we want a block of text to act like an image.
+ In this case, we could use "vw" (viewport width).</p>
+<xmp><p style="font-size:2.5vw">This is relative to the viewport width!</p> 
+</xmp>
+<p style="font-size:2.5vw">This is relative to the viewport width!</p> 
+<p>Resize the browser window to see how this works.</p>
 <br />
 
 
@@ -137,12 +273,10 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 
 
 
-<div id="readyformore" style="display:none;">
 
 <h2>Are you ready for more?</h2>
-<p>Let's move on to <a href="10.html">Lesson 10</a>.</p>
+<p>Let's move on to <a href="10.php">Lesson 10</a>.</p>
 <br />
-</div>
 
 
 
