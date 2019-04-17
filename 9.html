@@ -137,15 +137,17 @@ Whenever people talk about these concepts and how they're different, I want to t
 <p>
 This is the opposite of the KISS principle. For example: <i>
 Why have 20 lines of effective CSS when we can have 5,000 lines of convoluted nonsense? 
-Obviously, there's no job security in 20-lines of CSS.</i> As we'll see, website font-sizing
-is a great example of the <i>Make it Complicated</i> principle.
+Obviously, there's no job security in 20-lines of CSS.</i>
+It should go without saying that this is a terrible idea, but unfortunately there are many 
+unnecessary complications within modern web design.
+As we'll see, website font-sizing is a great example of this kind of <i>Make it Complicated</i> principle.
 </p>
 
 <h3>CSS Font-sizing</h3>
 <p>
   In CSS, we can specify a font-size in "px", "pt", "em", "ex", "%", "mm", "in", "ch", "vw", "rem", and maybe a dozen others.
   Most of these, like "px" and "pt", behave the same but offer different numeric measurements (like celsius and fahrenheit), and 
-   some function as multipliers, like "%" and "em".
+   some function as multipliers, like "%" and "em". So really, it's either a measurement or a multiplier, that's it.
 </p>
 <p>You may wonder, why are there so many different ways to specify font size?</p>
 <p>As best as I can tell, the <a href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium" target="_new">W3C</a>
@@ -165,7 +167,7 @@ is a great example of the <i>Make it Complicated</i> principle.
    (because most devices provide sensible defaults).
 </p>
 <p>
-  For example, here's an extremely common style:</p>
+  For example, here's an extremely common style that should never be used:</p>
 <xmp>html { font-size: 62.5%; } 
 </xmp>
 <p>The 62.5% is so common that it's almost universal.
@@ -212,10 +214,12 @@ body { font-size: 1.6em; }
     It's really no more complicated than that, although older browsers did wonky things to em's 
     and for a while there were designers advocating to only use "%".</p>
 <p>The "rem", or "root em", is just an "em" without any inherited multiplier, it only multiplies 
-  against the "root" (or default) font-size.
+  against the "root" (or default) font-size. So "rem" is technically just a measurement (like "px") and not a multiplier.
 <p>If we're using "rem" with the 62.5% trick, we're basically just using "px".
    I guess people feel more like artists typing "1.4rem" rather than "14px".
-   Apparently, pixels are for nerds, artists use "em"?</p>
+   Apparently, pixels are for nerds, artists use "em"?
+   Until rem is more widely supported, designers are stuck trying to figure out the multiplier approach with "em",
+   they have no "em" based measurement approach and will end up using "px".</p>
 
 <h4>Why not just use px?</h4>
 <p>This is already happening, and it's a perfectly valid approach.
@@ -247,7 +251,7 @@ body { font-size: 1.6em; }
   </p>
 <p><b>3. Use "px" sparingly.</b> 
   In some cases it's easier and more reusable to use "px"
-    rather than a multiplier font-size (like "em", "rem", or "%"). 
+    rather than a multiplier font-size (like "em", or "%"). 
   For example, in an image gallery
     with fixed-size previews, it may be necessary to use "px" for the caption.
 </p>
@@ -275,7 +279,7 @@ body { font-size: 1.6em; }
 
 
 <h2>Are you ready for more?</h2>
-<p>Let's move on to <a href="10.php">Lesson 10</a>.</p>
+<p>Let's move on to <a href="10.html">Lesson 10</a>.</p>
 <br />
 
 
