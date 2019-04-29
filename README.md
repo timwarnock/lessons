@@ -1,6 +1,4 @@
-# lessons
-
-HTML + CSS + JavaScript Lessons
+# HTML + CSS + JavaScript Lessons
 
 I created these as a simple set of lessons for learning basic web development. 
 
