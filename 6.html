@@ -162,7 +162,7 @@ br {
     var temp_desc  = temp>25 ? 'an uncomfortable' : temp<17 ? 'a chilly' : 'a comfortable';
     var humi_desc  = humi>60 ? 'an uncomfortable' : humi<30 ? 'a dry'    : 'a comfortable';
     var wind_desc  = wind>38 ? 'a stormy'         : wind<10 ? 'a calm'   : 'a breezy';
-    weatherbox('<p>According to Yahoo (at ' + pubdate + '), it\'s <em>' + res.condition.text + '</em> outside</p>'
+    weatherbox('<p>According to Yahoo (at ' + pubdate + ' UTC), it\'s <em>' + res.condition.text + '</em> outside</p>'
       + '<p>the temperature is ' + temp_desc + ' <em id="weatherbox_temp">' + temp + ' ' + 'celsius' + '</em></p>'
       + '<p>the humidity is ' + humi_desc + ' <em id="weatherbox_humi">' + humi + '%</em></p>' 
       + '<p>and the wind is ' + wind_desc + ' <em id="weatherbox_wind">' + wind + ' ' + 'km/h' + '</em></p>'
